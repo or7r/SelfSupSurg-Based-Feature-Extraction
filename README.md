@@ -76,7 +76,7 @@ $SelSupSurg/
         └── dino_resnet50_pretrain.pth
 ```
 
-Detailes regarding downloading Multibypass140 can be found [here](https://github.com/CAMMA-public/MultiBypass140).
+Details regarding downloading Multibypass140 can be found [here](https://github.com/CAMMA-public/MultiBypass140).
 
 
 ## Installation
