@@ -76,6 +76,8 @@ $SelSupSurg/
         └── dino_resnet50_pretrain.pth
 ```
 
+Detailes regarding downloading Multibypass140 can be found [here](https://github.com/CAMMA-public/MultiBypass140).
+
 
 ## Installation
 You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linux) installed for the setup. We developed the code on the Ubuntu 20.04, Python 3.8, PyTorch 1.7.1, and CUDA 10.2 using V100 GPU.
