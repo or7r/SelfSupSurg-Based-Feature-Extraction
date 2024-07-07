@@ -107,11 +107,6 @@ You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linu
     "test": ["<img_path>", "<lbl_path>"]
 }
 ```
-## Initial weights
-Run the following to download imagenet pre-trained model
-```sh
-(selfsupsurg)>wget https://download.pytorch.org/models/resnet50-19c8e357.pt -O checkpoints/defaults/resnet_50/resnet50-19c8e357.pt
-```
 
 ## Self-supervised trainining
 ```sh
