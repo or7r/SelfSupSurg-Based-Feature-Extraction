@@ -2,50 +2,6 @@ This repo is forked from https://github.com/CAMMA-public/SelfSupSurg and used fo
 
 [![arXiv](https://img.shields.io/badge/arxiv-2207.00449-red)](https://arxiv.org/abs/2406.18481)
 
-<div align="center">
-<a href="http://camma.u-strasbg.fr/">
-<img src="static/camma_logo_tr.png" width="30%">
-</a>
-</div>
-
-## **Dissecting Self-Supervised Learning Methods for Surgical Computer Vision**
-
-_Sanat Ramesh, Vinkle Srivastav, Deepak Alapatt, Tong Yu, Aditya Murali, Luca Sestini, Chinedu Innocent Nwoye, Idris Hamoud, Saurav Sharma, Antoine Fleurentin, Georgios Exarchakis, Alexandros Karargyris, Nicolas Padoy_, 2022
-
-[![arXiv](https://img.shields.io/badge/arxiv-2207.00449-red)](https://arxiv.org/abs/2207.00449)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dissecting-self-supervised-learning-methods/surgical-phase-recognition-on-cholec80-1)](https://paperswithcode.com/sota/surgical-phase-recognition-on-cholec80-1?p=dissecting-self-supervised-learning-methods)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dissecting-self-supervised-learning-methods/surgical-tool-detection-on-cholec80)](https://paperswithcode.com/sota/surgical-tool-detection-on-cholec80?p=dissecting-self-supervised-learning-methods)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dissecting-self-supervised-learning-methods/semantic-segmentation-on-endoscapes)](https://paperswithcode.com/sota/semantic-segmentation-on-endoscapes?p=dissecting-self-supervised-learning-methods)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dissecting-self-supervised-learning-methods/surgical-tool-detection-on-heichole-benchmark)](https://paperswithcode.com/sota/surgical-tool-detection-on-heichole-benchmark?p=dissecting-self-supervised-learning-methods)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dissecting-self-supervised-learning-methods/action-triplet-recognition-on-cholect50-1)](https://paperswithcode.com/sota/action-triplet-recognition-on-cholect50-1?p=dissecting-self-supervised-learning-methods)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dissecting-self-supervised-learning-methods/surgical-phase-recognition-on-heichole)](https://paperswithcode.com/sota/surgical-phase-recognition-on-heichole?p=dissecting-self-supervised-learning-methods)
-
-
-## News
-- [ **05/06/2023** ]: Added training and evaluation scripts for surgical triplet recognition. Follow [readme_triplet](./downstream_triplet/README.md)
-
-### Introduction
-<div style="text-align: left">
-The field of surgical computer vision has undergone considerable breakthroughs in recent years with the rising popularity of deep neural network-based methods. However, standard fully-supervised approaches for training such models require vast amounts of annotated data, imposing a prohibitively high cost; especially in the clinical domain. Self-Supervised Learning (SSL) methods, which have begun to gain traction in the general computer vision community, represent a potential solution to these annotation costs, allowing to learn useful representations from only unlabeled data. Still, the effectiveness of SSL methods in more complex and impactful domains, such as medicine and surgery, remains limited and unexplored. In this work, we address this critical need by investigating four state-of-the-art SSL methods (MoCo v2, SimCLR, DINO, SwAV) in the context of surgical computer vision. We present an extensive analysis of the performance of these methods on the Cholec80 dataset for two fundamental and popular tasks in surgical context understanding, phase recognition and tool presence detection. We examine their parameterization, then their behavior with respect to training data quantities in semi-supervised settings. Correct transfer of these methods to surgery, as described and conducted in this work, leads to substantial performance gains over generic uses of SSL - up to 7.4% on phase recognition and 20% on tool presence detection - as well as state-of-the-art semi-supervised phase recognition approaches by up to 14%. Further results obtained on a highly diverse selection of surgical datasets exhibit strong generalization properties.
-</div>
-<p float="center"> <img src="static/arch_720p.gif" width="90%" /> </p>
-
-## Main takeaways from the paper
-**[1]** Benchmarking of four state-of-the-art SSL methods ( [**MoCo v2**](https://arxiv.org/abs/2003.04297), [**SimCLR**](https://arxiv.org/abs/2002.05709), [**SwAV**](https://arxiv.org/abs/2006.09882), and [**DINO**](https://arxiv.org/abs/2104.14294)) in the surgical domain.
-
-**[2]** Thorough experimentation (**∼200** experiments, **7000** GPU hours) and analysis of different design settings - data augmentations, batch size, training duration, frame rate, and initialization - highlighting a need for and intuitions towards designing principled approaches for domain transfer of SSL methods.
-
-**[3]** In-depth analysis on the adaptation of these methods, originally developed using other datasets and tasks, to the surgical domain with a comprehensive set of evaluation protocols, spanning 10 surgical vision tasks in total performed on 6 datasets: [**Cholec80**](https://arxiv.org/abs/1602.03012), [**CholecT50**](https://cholectriplet2021.grand-challenge.org/), [**HeiChole**](https://www.synapse.org/#!Synapse:syn25101790/wiki/610013), [**Endoscapes**](https://arxiv.org/abs/2112.13815), [**CATARACTS**](https://discovery.ucl.ac.uk/id/eprint/10068008/1/CATARACTS.pdf), and [**CaDIS**](https://www.sciencedirect.com/science/article/pii/S1361841521000992).
-
-**[4]** Extensive evaluation (**∼280** experiments, **2000** GPU hours) of the scalability of these methods to various amounts of labeled and unlabeled data through an exploration of both fully and semi-supervised settings.
-
-#### In this repo we provide:
-- Self-supervised weights trained on cholec80 dataset using four state-of-the-art SSL methods (MOCO V2, SimCLR, SwAV, and DINO).
-- Self-supervised pre-training scripts.
-- Downstream fine-tuning scripts for surgical phase recognition (linear fine-tuning and TCN fine-tuning).
-- Downstream fine-tuning scripts for surgical tool recognition (linear fine-tuning).
-- Downstream fine-tuning scripts for surgical triplet recognition (linear fine-tuning).
 
 # Get Started
 
