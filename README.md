@@ -1,6 +1,6 @@
 This repo is forked from https://github.com/CAMMA-public/SelfSupSurg, which corresponds to the paper
-["Dissecting Self-Supervised Learning Methods for Surgical Computer Vision"](https://www.sciencedirect.com/science/article/pii/S1361841523001044)
-we thank the authors for releasing their codes. 
+["Dissecting Self-Supervised Learning Methods for Surgical Computer Vision"](https://www.sciencedirect.com/science/article/pii/S1361841523001044).
+We thank the authors for releasing their codes. 
 This repo is used for feature extraction for "Robust Surgical Phase Recognition From Annotation Efficient Supervision"
 
 [![arXiv](https://img.shields.io/badge/arxiv-2207.00449-red)](https://arxiv.org/abs/2406.18481)
