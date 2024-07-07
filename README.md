@@ -124,3 +124,22 @@ Run the following to download imagenet pre-trained model
 (selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s val -f Trunk
 (selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s test -f Trunk   
 ```
+
+### References
+The project uses [VISSL](https://github.com/facebookresearch/vissl). We thank the authors of VISSL for releasing the library. If you use VISSL, consider citing it using the following BibTeX entry.
+```bibtex
+@misc{goyal2021vissl,
+  author =       {Priya Goyal and Quentin Duval and Jeremy Reizenstein and Matthew Leavitt and Min Xu and
+                  Benjamin Lefaudeux and Mannat Singh and Vinicius Reis and Mathilde Caron and Piotr Bojanowski and
+                  Armand Joulin and Ishan Misra},
+  title =        {VISSL},
+  howpublished = {\url{https://github.com/facebookresearch/vissl}},
+  year =         {2021}
+}
+```
+The project also leverages following research works. We thank the authors for releasing their codes.
+- [TeCNO](https://github.com/tobiascz/TeCNO)
+
+## License
+This code, models, and datasets are available for non-commercial scientific research purposes as defined in the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). By downloading and using this code you agree to the terms in the [LICENSE](LICENSE). Third-party codes are subject to their respective licenses.
+
