@@ -9,6 +9,9 @@ This repo is used for feature extraction for "Robust Surgical Phase Recognition 
 # Get Started
 
 ## Datasets and imagenet checkpoints
+
+### Cholec80
+
 Follow the steps for cholec80 dataset preparation and setting up imagenet checkpoints:
 
 ```bash
@@ -76,11 +79,35 @@ $SelSupSurg/
         └── dino_resnet50_pretrain.pth
 ```
 
+## Multibypass140
+
 Details regarding downloading Multibypass140 can be found [here](https://github.com/CAMMA-public/MultiBypass140).
+
+Next, we prepare the MultiBypass140 dataset as follows:
+```bash
+mkdir -p datasets/MultiBypass140/raw_labels/bern
+cp -r "$MBy140/labels/bern/labels_by70_splits/labels/" datasets/MultiBypass140/raw_labels/bern/
+
+mkdir -p datasets/MultiBypass140/raw_labels/strasbourg
+cp -r "$MBy140/labels/strasbourg/labels_by70_splits/labels/" datasets/MultiBypass140/raw_labels/strasbourg/
+
+python scripts/connect_labels.py
+
+mkdir -p datasets/MultiBypass140/frames/
+python scripts/order_frames.py --input_dir $MBy140/labels/bern/labels_by70_splits/frames --output_dir datasets/MultiBypass140/frames/train/ --label_file datasets/MultiBypass140/raw_labels/bern/train/1fps_100_0.pickle
+python scripts/order_frames.py --input_dir $MBy140/labels/bern/labels_by70_splits/frames --output_dir datasets/MultiBypass140/frames/val/ --label_file datasets/MultiBypass140/raw_labels/bern/val/1fps_0.pickle
+python scripts/order_frames.py --input_dir $MBy140/labels/bern/labels_by70_splits/frames --output_dir datasets/MultiBypass140/frames/test/ --label_file datasets/MultiBypass140/raw_labels/bern/test/1fps_0.pickle
+
+python scripts/order_frames.py --input_dir $MBy140/labels/strasbourg/labels_by70_splits/frames --output_dir datasets/MultiBypass140/frames/train/ --label_file datasets/MultiBypass140/raw_labels/strasbourg/train/1fps_100_0.pickle
+python scripts/order_frames.py --input_dir $MBy140/labels/strasbourg/labels_by70_splits/frames --output_dir datasets/MultiBypass140/frames/val/ --label_file datasets/MultiBypass140/raw_labels/strasbourg/val/1fps_0.pickle
+python scripts/order_frames.py --input_dir $MBy140/labels/strasbourg/labels_by70_splits/frames --output_dir datasets/MultiBypass140/frames/test/ --label_file datasets/MultiBypass140/raw_labels/strasbourg/test/1fps_0.pickle
+
+
+```
 
 
 ## Installation
-You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linux) installed for the setup. We developed the code on the Ubuntu 20.04, Python 3.8, PyTorch 1.7.1, and CUDA 10.2 using V100 GPU.
+You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linux) installed for the setup. We developed the code on the Ubuntu 20.04, Python 3.8, PyTorch 1.7.1, and CUDA 10.2 using RTX6000 GPUs.
 ```sh
 > cd $SelfSupSurg
 > conda create -n selfsupsurg python=3.8 && conda activate selfsupsurg
@@ -113,8 +140,17 @@ You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linu
 ## Self-supervised trainining
 ```sh
 # DINO 
+(selfsupsurg)>cfg=hparams/cholec80/pre_training/cholec_to_cholec/series_01/h004.yaml
+(selfsupsurg)>python main.py -hp $cfg -m self_supervised
+
 (selfsupsurg)>mkdir -p runs/cholec80/pre_training/cholec_to_cholec/series_01/run_004/ \
                && cp model_final_checkpoint_dino_surg.torch runs/cholec80/pre_training/cholec_to_cholec/series_01/run_004/
+
+(selfsupsurg)>cfg=hparams/MultiBypass140/pre_training/cholec_to_cholec/series_01/h004.yaml
+(selfsupsurg)>python main.py -hp $cfg -m self_supervised
+
+(selfsupsurg)>mkdir -p runs/MultiBypass140/pre_training/cholec_to_cholec/series_01/run_004/ \
+               && cp model_final_checkpoint_dino_surg.torch runs/MultiBypass140/pre_training/cholec_to_cholec/series_01/run_004/
 ```
 
 ## Feature extraction
@@ -123,6 +159,13 @@ You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linu
 (selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s train -f Trunk
 (selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s val -f Trunk
 (selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s test -f Trunk   
+
+
+(selfsupsurg)>cfg=hparams/MultiBypass140/finetuning/cholec_to_cholec/series_01/test/phase/100/1/h004.yaml
+(selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s train -f Trunk
+(selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s val -f Trunk
+(selfsupsurg)>python main.py -hp $cfg -m  feature_extraction -s test -f Trunk   
+
 ```
 
 ### References
