@@ -38,48 +38,6 @@ Follow the steps for cholec80 dataset preparation and setting up imagenet checkp
 
 ```
 - Directory structure should look as follows.
-```shell
-$SelSupSurg/
-└── datasets/cholec80/
-    ├── frames/
-        ├── train/
-            └── video01/
-            └── video02/
-            ...
-        ├── val/
-            └── video41/
-            └── video42/
-            ...
-        ├── test/
-            └── video49/
-            └── video50/
-            ...
-    ├── labels/
-        ├── train/
-            └── 1fps_12p5_0.pickle
-            └── 1fps_12p5_1.pickle
-            ...
-        ├── val/
-            └── 1fps.pickle
-            └── 3fps.pickle
-            ...
-        ├── test/
-            └── 1fps.pickle
-            └── 3fps.pickle
-            ...        
-    └── classweights/
-        ├── train/
-            └── 1fps_12p5_0.pickle
-            └── 1fps_12p5_1.pickle
-                ...
-    ...
-    └── checkpoints/defaults/resnet_50/
-        └── resnet50-19c8e357.pth
-        └── moco_v2_800ep_pretrain.pth.tar
-        └── simclr_rn50_800ep_simclr_8node_resnet_16_07_20.7e8feed1.torch
-        └── swav_in1k_rn50_800ep_swav_8node_resnet_27_07_20.a0a6b676.torch
-        └── dino_resnet50_pretrain.pth
-```
 
 ## Multibypass140
 
