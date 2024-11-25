@@ -35,9 +35,7 @@ Follow the steps for cholec80 dataset preparation and setting up imagenet checkp
 > cd $SelfSupSurg/checkpoints/defaults/resnet_50
 > wget https://s3.unistra.fr/camma_public/github/selfsupsurg/imagenet_ckpts.zip
 > unzip -q imagenet_ckpts.zip && rm imagenet_ckpts.zip
-
 ```
-- Directory structure should look as follows.
 
 ## Multibypass140
 
