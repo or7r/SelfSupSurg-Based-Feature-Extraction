@@ -109,7 +109,7 @@ python scripts/order_frames.py --input_dir $MBy140/labels/strasbourg/labels_by70
 
 
 ## Installation
-You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linux) installed for the setup. We developed the code on the Ubuntu 20.04, Python 3.8, PyTorch 1.12.1, and CUDA 10.2 using RTX6000 GPUs.
+You need to have a [Anaconda3](https://www.anaconda.com/products/individual#linux) installed for the setup. We developed the code on the Ubuntu 20.04, Python 3.8, PyTorch 1.12.1, and CUDA 11.3 using RTX6000 GPUs.
 ```sh
 > cd $SelfSupSurg
 > conda create -n selfsupsurg python=3.8 && conda activate selfsupsurg
